@@ -51,6 +51,8 @@ public class Movie {
         this.ratings = ratings;
     }
 
+    public Movie() {}
+
     public Movie(String name, String description, int price) {
         this.name = name;
         this.description = description;
