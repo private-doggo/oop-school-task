@@ -1,0 +1,11 @@
+entity\Person\Person.class
+db\Const.class
+db\Config.class
+dao\MovieDaoImpl.class
+entity\Movie.class
+entity\Person\Role.class
+db\DatabaseHandler.class
+entity\Person\Admin.class
+entity\Person\User.class
+service\MovieService.class
+dao\MovieDao.class
