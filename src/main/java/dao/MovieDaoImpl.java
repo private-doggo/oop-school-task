@@ -12,7 +12,7 @@ import java.sql.Statement;
 public class MovieDaoImpl implements MovieDao {
 
     public void save(String name, String description, int price) throws SQLException, ClassNotFoundException {
-        String insert = "INSERT INTO " + Const.TABLE_NAME + "(" +
+        String insert = "INSERT INTO " + Const.MOVIES_TABLE_NAME + "(" +
                 Const.MOVIE_NAME + "," + Const.MOVIE_DESCRIPTION + "," +
                 Const.MOVIE_PRICE + ")" + "VALUES(?,?,?)";
 
@@ -36,7 +36,7 @@ public class MovieDaoImpl implements MovieDao {
     public void delete(String name) {
         /*String delete = "DELETE FROM " + Const.TABLE_NAME + " WHERE" + "(" +
                 "name = " + name + ")";*/
-        String delete = String.format("DELETE FROM " + Const.TABLE_NAME +
+        String delete = String.format("DELETE FROM " + Const.MOVIES_TABLE_NAME +
                 " WHERE " + Const.MOVIE_NAME + " = '%s';", name);
 
         DatabaseHandler dbh = new DatabaseHandler();
@@ -57,7 +57,8 @@ public class MovieDaoImpl implements MovieDao {
             DatabaseHandler dbh = new DatabaseHandler();
 
             Statement st = dbh.getDbConnection().createStatement();
-            String get = String.format("SELECT * FROM movies WHERE name = '%s';", name);
+            String get = String.format("SELECT * FROM " + Const.MOVIES_TABLE_NAME + " WHERE " +
+                    Const.MOVIE_NAME + " = '%s';", name);
             ResultSet rs = st.executeQuery(get);
 
             Movie movie = new Movie();
@@ -84,7 +85,7 @@ public class MovieDaoImpl implements MovieDao {
         DatabaseHandler dbh = new DatabaseHandler();
 
         Statement st = dbh.getDbConnection().createStatement();
-        String get = String.format("SELECT * FROM movies;");
+        String get = String.format("SELECT * FROM " + Const.PERSONS_TABLE_NAME + ";");
         ResultSet rs = st.executeQuery(get);
 
         while (rs.next()) {

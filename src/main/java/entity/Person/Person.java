@@ -21,14 +21,6 @@ public class Person {
         this.role = role;
     }
 
-    public Person getPersonByName(String name) {
-        Person person = new Person();
-
-        //
-
-        return person;
-    }
-
     public Person() {}
 
     public Person(String name, String role) {
